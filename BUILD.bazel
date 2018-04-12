@@ -1,0 +1,43 @@
+package(default_visibility=["//visibility:public"])
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_modules_filegroup")
+load("//tools:defaults.bzl", "ts_library", "npm_package")
+
+# Needed so that tsconfig.json can be referenced from BUILD rules.
+exports_files([
+    "tsconfig.json",
+    "LICENSE",
+    "README.md",
+])
+
+node_modules_filegroup(
+    name="node_modules",
+    # NB: rxjs is not in this list, because we build it from sources using the
+    # label @rxjs//:rxjs
+    packages=[
+        "@angular",
+        "jasmine",
+        "typescript",
+        "@types",
+        "tsickle",
+    ],
+)
+
+ts_library(
+    name="angular-testing-library",
+    srcs=glob([
+        "*.ts",
+        "src/**/*.ts",
+    ]),
+    module_name="angular-testing-library",
+    deps=["@rxjs"],
+)
+
+npm_package(
+    name="npm_package",
+    srcs=[
+        "package.json",
+    ],
+    deps=[
+        ":angular-testing-library",
+    ],
+)

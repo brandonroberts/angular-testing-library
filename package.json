@@ -1,0 +1,28 @@
+{
+  "name": "angular-testing-library",
+  "version": "0.0.1",
+  "description": "A testing library to make writing tests for Angular apps easier",
+  "main": "index.js",
+  "repository": "git@github.com:synapse-wireless-labs/angular-testing-library.git",
+  "author": "Synapse Wireless, inc",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/animations": "^6.0.0-rc.1",
+    "@angular/bazel": "^6.0.0-rc.1",
+    "@angular/common": "^6.0.0-rc.1",
+    "@angular/compiler": "^6.0.0-rc.1",
+    "@angular/compiler-cli": "^6.0.0-rc.1",
+    "@angular/core": "^6.0.0-rc.1",
+    "@angular/http": "^6.0.0-rc.1",
+    "@angular/platform-browser": "^6.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^6.0.0-rc.1",
+    "@angular/platform-server": "^6.0.0-rc.1",
+    "@types/jasmine": "^2.8.6",
+    "core-js": "^2.5.5",
+    "jasmine": "^3.1.0",
+    "rxjs": "^6.0.0-tactical-rc.1",
+    "tsickle": "^0.27.5",
+    "typescript": "^2.8.1",
+    "zone.js": "^0.8.26"
+  }
+}
