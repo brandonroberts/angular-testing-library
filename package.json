@@ -1,6 +1,6 @@
 {
   "name": "angular-testing-library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A testing library to make writing tests for Angular apps easier",
   "main": "index.js",
   "repository": "git@github.com:synapse-wireless-labs/angular-testing-library.git",
