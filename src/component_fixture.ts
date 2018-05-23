@@ -3,6 +3,7 @@ import {
   Type,
   InjectionToken,
   ComponentRef,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   TestBed,
@@ -24,20 +25,29 @@ export function createComponentFixture<T>({
   module: sourceModule,
   component,
   shallow = true,
+  compilerOptions = {preserveWhitespaces: false},
   ...testModuleMetadata
 }: TestModuleMetadata & {
   module?: NodeModule;
   component: Type<T>;
   shallow?: boolean;
+  compilerOptions?: Partial<{
+    providers: any[];
+    useJit: boolean;
+    preserveWhitespaces: boolean;
+  }>;
 }): ComponentTestFixture<T> {
   let componentFixture: ComponentFixture<T> | null;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      schemas: [shallow ? NO_ERRORS_SCHEMA : []],
-      declarations: [component, testModuleMetadata.declarations || []],
-      providers: testModuleMetadata.providers,
-      imports: [NoopAnimationsModule, ...(testModuleMetadata.imports || [])],
+    TestBed.configureCompiler(compilerOptions)
+      .configureTestingModule({
+        schemas: [shallow ? NO_ERRORS_SCHEMA : []],
+        declarations: [component, testModuleMetadata.declarations || []],
+        providers: testModuleMetadata.providers,
+        imports: [NoopAnimationsModule, ...(testModuleMetadata.imports || [])],
+      }).overrideComponent(component,{
+      set: {changeDetection:ChangeDetectionStrategy.Default}
     });
   });
 
