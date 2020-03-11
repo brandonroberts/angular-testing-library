@@ -2,12 +2,12 @@ import {
   NO_ERRORS_SCHEMA,
   Type,
   InjectionToken,
-  ComponentRef,
+  ComponentRef
 } from '@angular/core';
 import {
   TestBed,
   TestModuleMetadata,
-  ComponentFixture,
+  ComponentFixture
 } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,7 +37,7 @@ export function createComponentFixture<T>({
       schemas: [shallow ? NO_ERRORS_SCHEMA : []],
       declarations: [component, testModuleMetadata.declarations || []],
       providers: testModuleMetadata.providers,
-      imports: [NoopAnimationsModule, ...(testModuleMetadata.imports || [])],
+      imports: [NoopAnimationsModule, ...(testModuleMetadata.imports || [])]
     });
   });
 
@@ -87,7 +87,7 @@ export function createComponentFixture<T>({
       }
 
       return componentFixture.componentRef;
-    },
+    }
   };
 }
 

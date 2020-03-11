@@ -29,6 +29,6 @@ export function createMagicalMock<T>(type: Type<T>): Mock<T> {
 export function provideMagicalMock<T>(type: Type<T>): Provider {
   return {
     provide: type,
-    useFactory: () => createMagicalMock(type),
+    useFactory: () => createMagicalMock(type)
   };
 }
