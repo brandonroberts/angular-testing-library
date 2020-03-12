@@ -40,6 +40,14 @@
             "passWithNoTests": true,
             "setupFile": "libs/angular-testing-library/src/test-setup.ts"
           }
+        },
+        "publish": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              { "command": "npm publish dist/libs/angular-testing-library" }
+            ]
+          }
         }
       },
       "schematics": {}
